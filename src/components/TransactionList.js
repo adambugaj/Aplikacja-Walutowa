@@ -1,13 +1,16 @@
 import React from 'react';
+import RemoveTransaction from './RemoveTransaction';
 
-const TransactionList = ({transactionName, transactionValue}) => {
-  console.log(transactionName);
+// Pokaż listę zapisanych transakcji
+const TransactionList = (props) => {
+  console.log(props);
   return (
     <div>
-      <p>Home-office days: <span>{transactionName}</span></p>
-      <p>Learning days: <span>{transactionValue}</span></p>
+      <p>Nazwa: <span>{props.transactionName}</span></p>
+      <p>Kwota: <span>{props.transactionValue}</span></p>
+      <RemoveTransaction transaction = {props}/>
     </div>
   )
 }
-
+//transaction = {props} - przenieś dane transakcji, która użytkownik chce usunac do komponentu RemoveTransaction
 export default TransactionList;

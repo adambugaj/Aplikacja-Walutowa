@@ -1,5 +1,4 @@
 
-
 const transactionReducerDefault = [];
 
 const transactionReducer = (state = transactionReducerDefault, action) => {
@@ -11,9 +10,11 @@ const transactionReducer = (state = transactionReducerDefault, action) => {
         ...state,
         action.transaction
       ];
-    case 'REMOVE_EXPENSE':
-      return state.filter(({ id }) => {
-        return id !== action.id;
+    case 'REMOVE_TRANSACTION':
+    console.log(action)
+      return state.filter(({ transactionID }) => {
+        console.log(action)
+        return transactionID !== action.transactionID;
       });
     default:
       return state;
