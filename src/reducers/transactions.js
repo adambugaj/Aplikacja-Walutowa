@@ -15,10 +15,11 @@ const transactionReducer = (state = transactionReducerDefault, action) => {
     case 'EDIT_TRANSACTION':
     console.log(action, state)
       return state.map((trans) => {
-        console.log(state)
+        console.log(trans, action.updates)
         return {
           ...trans,
-          transactionSum: action.updates
+          transactionSum: action.updates,
+          transactionHigh: trans.transactionEuro * action.updates
         }
       });
       case 'FILTER_TRANSACTION':

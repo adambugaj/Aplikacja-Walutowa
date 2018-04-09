@@ -16,7 +16,7 @@ const TransactionList = (props) => {
           <CardText>
             <div>
               <p>Kwota w Euro: <span><strong>{props.transactionEuro}</strong> €</span></p>
-              <p>Kwota w PLN: <span><strong>{props.transactionSum}</strong> zł</span></p>
+              <p>Kwota w PLN: <span><strong>{(props.transactionSum * props.transactionEuro).toFixed(2)}</strong> zł</span></p>
             </div>
           </CardText>
           <CardActions>

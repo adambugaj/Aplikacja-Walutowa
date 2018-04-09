@@ -3,13 +3,12 @@ import { connect } from 'react-redux';
 
 // Pokaż transakcje o największej kwocie
 const FilterTransaction = (props) => {
-  console.log(props);
-
+  console.log(props.transaction[0]);
   return (
     <div>
-      <p>Nazwa: <span>{props.transactionName}</span></p>
-      <p>Kwota w Euro: <span>{props.transactionEuro}</span></p>
-      <p>Kwota w PLN: <span>{props.transactionZloty * props.transactionEuro}</span></p>
+      <p>Nazwa: <strong>{props.transaction[0] !== undefined && props.transaction[0].transactionName}</strong></p>
+      <p>Kwota w Euro: <strong>{props.transaction[0] !== undefined && props.transaction[0].transactionEuro}</strong> €</p>
+      <p>Kwota w PLN: <strong>{props.transaction[0] !== undefined && props.transaction[0].transactionHigh}</strong> zł</p>
     </div>
   )
 }
@@ -18,10 +17,9 @@ const FilterTransaction = (props) => {
 const mapStateToProps = (props) => {
   console.log(props)
   return {
-    transaction: props.transaction.map((trans) => {
-      return trans.transactionEuro;
-    }).sort((a,b) => {
-          return b - a;
+    transaction: props.transaction.sort((a,b) => {
+          console.log(a)
+          return b.transactionHigh - a.transactionHigh;
     }),
     trans: props.transaction
   };

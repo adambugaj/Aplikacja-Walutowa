@@ -1,8 +1,8 @@
 const addTransaction = ({
   transactionName = '',
   transactionEuro = 0,
-  transactionZloty = 0,
-  transactionSum = 0
+  transactionSum = 0,
+  transactionHigh = 0
 } = {}
 ) => ({
   type: "ADD_TRANSACTION",
@@ -10,8 +10,8 @@ const addTransaction = ({
     transactionID: `${Math.floor(Math.random() * 1000)}.${Math.floor(Math.random() * 1000)}`,
     transactionName,
     transactionEuro,
-    transactionZloty,
-    transactionSum
+    transactionSum,
+    transactionHigh
   }
 });
 

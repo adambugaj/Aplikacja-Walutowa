@@ -14,15 +14,15 @@ class DashboardPage extends React.Component {
     this.state = {
       transactionName: '',
       transactionEuro: 0,
-      transactionZloty: 0,
-      transactionSum: 0
+      transactionSum: 0,
+      transactionHigh: 0
     }
   }
 
   onChangeZloty = (e) => {
     const zloty = e.target.value;
     this.props.dispatch(editTransaction( zloty ));
-    this.setState(() => ({ transactionZloty: zloty }));
+    this.setState(() => ({ transactionSum: zloty }));
   };
 
   onChangeName = (e) => {
@@ -42,8 +42,8 @@ class DashboardPage extends React.Component {
       this.props.onSubmit({
         transactionName: this.state.transactionName,
         transactionEuro: this.state.transactionEuro,
-        transactionZloty: this.state.transactionZloty,
-        transactionSum: (this.state.transactionZloty * this.state.transactionEuro).toFixed(2)
+        transactionSum: this.state.transactionSum,
+        transactionHigh: (this.state.transactionSum * this.state.transactionEuro).toFixed(2)
       });
     };
 // Interfejs aplikacji
@@ -61,9 +61,7 @@ class DashboardPage extends React.Component {
               className="input-group"
               type="text"
               onChange={this.onChangeZloty}
-              style={{
-                left: '3%'
-              }}
+              className="input-group__item"
           />
             <CardHeader
               title="Dodaj transakcję walutową"
@@ -72,9 +70,7 @@ class DashboardPage extends React.Component {
                 floatingLabelText="wprowadź nazwę transakcji"
                 type="text"
                 onChange={this.onChangeName}
-                style={{
-                  left: '3%'
-                }}
+                className="input-group__item"
             />
             <TextField
                 floatingLabelText="wprowadź kwotę w Euro"
@@ -90,13 +86,14 @@ class DashboardPage extends React.Component {
         </MuiThemeProvider>
         </form>
         <p>Suma wszystkich transakcji: <span>{this.props.transaction.length}</span></p>
+        <FilterTransaction />
       </div>
     );
   }
 };
 
 const mapStateToProps = (state, props) => {
-  console.log(state)
+  console.log(props)
   return {
     transaction: state.transaction
   };

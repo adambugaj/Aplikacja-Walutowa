@@ -11,10 +11,10 @@
 
 .input-group__item {
   margin-right: $input;
-  left: 3%;
+  left: 5%;
 
   @media (min-width: $desktop-breakpoint) {
     margin: 0 $input 0 0;
-    left: 5%;
+    left: 4%;
   }
 }
