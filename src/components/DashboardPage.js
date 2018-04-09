@@ -27,7 +27,6 @@ class DashboardPage extends React.Component {
 
   onChangeName = (e) => {
     const name = e.target.value;
-    console.log(e.target.value)
       this.setState(() => ({ transactionName: name }));
   };
 
@@ -36,9 +35,10 @@ class DashboardPage extends React.Component {
     this.setState(() => ({ transactionEuro: euro }));
   };
 
+// Po zatwierdzeniu przyciskiem submit wysyłamy dane do obiektu
   onSubmit = (e) => {
       e.preventDefault();
-      // this.props.dispatch(filterTransaction(this.state.transactionSum);
+      console.log(this.props)
       this.props.onSubmit({
         transactionName: this.state.transactionName,
         transactionEuro: this.state.transactionEuro,
@@ -46,7 +46,8 @@ class DashboardPage extends React.Component {
         transactionHigh: (this.state.transactionSum * this.state.transactionEuro).toFixed(2)
       });
     };
-// Interfejs aplikacji
+
+// Interfejs aplikacji oraz komponenty material-ui
   render() {
     return (
       <div className="content-conatainer">
@@ -77,7 +78,6 @@ class DashboardPage extends React.Component {
                 type="text"
                 onChange={this.onChangeEuro}
                 className="input-group__item"
-
             />
             <CardActions>
               <FlatButton type="submit" label="Submit" />
@@ -92,8 +92,7 @@ class DashboardPage extends React.Component {
   }
 };
 
-const mapStateToProps = (state, props) => {
-  console.log(props)
+const mapStateToProps = (state) => {
   return {
     transaction: state.transaction
   };

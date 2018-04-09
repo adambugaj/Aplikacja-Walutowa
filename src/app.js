@@ -16,4 +16,5 @@ const jsx = (
   </Provider>
 );
 
+// Run app ID from HTML code
 ReactDOM.render(jsx, document.getElementById('app'));

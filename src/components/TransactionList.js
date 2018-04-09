@@ -5,7 +5,7 @@ import TextField from 'material-ui/TextField';
 import { Card, CardHeader, CardText, CardActions, CardTitle } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 
-// Pokaż listę zapisanych transakcji
+// Pokazuje listę zapisanych transakcji
 const TransactionList = (props) => {
   console.log(props);
   return (
@@ -27,5 +27,5 @@ const TransactionList = (props) => {
     </div>
   )
 }
-//transaction = {props} - przenieś dane transakcji, która użytkownik chce usunac do komponentu RemoveTransaction
+//transaction = {props} - przenosi dane transakcji, która użytkownik chce usunac do komponentu RemoveTransaction
 export default TransactionList;

@@ -4,10 +4,8 @@ import DashboardPage from '../components/DashboardPage';
 import { Header } from '../components/Header';
 import TransactionList from '../components/TransactionList';
 import { addTransaction } from '../actions/transactions';
-// without {} beacuse this stateless component is connect()()
 
-
-// we dont use <BrowserRouter> due to createHistory dependecy
+// AppRouter Łączy komponenty w całosc i wyswietla na jednej stronie
 const AppRouter = (props) => {
 console.log(props.transaction.length);
  return (

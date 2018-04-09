@@ -1,5 +1,5 @@
 .header {
-  background: $dark-blue;
+  background: $light-blue;
   margin-bottom: 30px;
 }
 
@@ -13,7 +13,12 @@
 
 .header__content {
   align-items: center;
+    color: $off-white;
   display: flex;
   justify-content: space-between;
   padding: $s-size 0;
+
+  p {
+    margin-bottom: -60px;
+  }
 }
