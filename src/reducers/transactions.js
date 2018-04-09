@@ -2,20 +2,27 @@
 const transactionReducerDefault = [];
 
 const transactionReducer = (state = transactionReducerDefault, action) => {
-  console.log(action)
   switch (action.type) {
     case 'ADD_TRANSACTION':
-    console.log(action,state)
       return [
         ...state,
         action.transaction
       ];
     case 'REMOVE_TRANSACTION':
-    console.log(action)
       return state.filter(({ transactionID }) => {
-        console.log(action)
         return transactionID !== action.transactionID;
       });
+    case 'EDIT_TRANSACTION':
+    console.log(action, state)
+      return state.map((trans) => {
+        console.log(state)
+        return {
+          ...trans,
+          transactionSum: action.updates
+        }
+      });
+      case 'FILTER_TRANSACTION':
+        console.log(state);
     default:
       return state;
   }

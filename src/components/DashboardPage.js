@@ -1,58 +1,95 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { editTransaction, filterTransaction } from '../actions/transactions';
+import FilterTransaction from './FilterTransaction';
+// Material design components
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import TextField from 'material-ui/TextField';
+import { Card, CardHeader, CardActions } from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
 
 class DashboardPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       transactionName: '',
-      transactionValue: ''
+      transactionEuro: 0,
+      transactionZloty: 0,
+      transactionSum: 0
     }
   }
 
-  onChangeValue = (e) => {
-    const getQ1 = e.target.value;
-    console.log(getQ1);
-    this.setState(() => ({ q1: getQ1 }));
+  onChangeZloty = (e) => {
+    const zloty = e.target.value;
+    this.props.dispatch(editTransaction( zloty ));
+    this.setState(() => ({ transactionZloty: zloty }));
   };
 
   onChangeName = (e) => {
     const name = e.target.value;
-    console.log(name);
+    console.log(e.target.value)
       this.setState(() => ({ transactionName: name }));
   };
 
-  onChange = (e) => {
-    const value = e.target.value;
-    console.log(value);
-    this.setState(() => ({ transactionValue: value }));
+  onChangeEuro = (e) => {
+    const euro = e.target.value;
+    this.setState(() => ({ transactionEuro: euro }));
   };
 
   onSubmit = (e) => {
       e.preventDefault();
-      console.log(this.props);
+      // this.props.dispatch(filterTransaction(this.state.transactionSum);
       this.props.onSubmit({
         transactionName: this.state.transactionName,
-        transactionValue: this.state.transactionValue
+        transactionEuro: this.state.transactionEuro,
+        transactionZloty: this.state.transactionZloty,
+        transactionSum: (this.state.transactionZloty * this.state.transactionEuro).toFixed(2)
       });
     };
-
-
+// Interfejs aplikacji
   render() {
     return (
-      <div>
-        <p>Wprowadź wartość </p>
-        <span>1E = </span>
-          <input type="number" onChange={this.onChangeInput} />
-        <span> PLN</span>
-
+      <div className="content-conatainer">
         <form onSubmit={this.onSubmit}>
-        <p>Dodaj transakcję walutową </p>
-        <span>Nazwa: </span><input type="text" onChange={this.onChangeName} /> <p></p>
-        <span>Kwota w Euro  : </span><input type="text" onChange={this.onChange} />
-        <button>Submit</button>
+        <MuiThemeProvider>
+          <Card>
+            <CardHeader
+              title="Zdefiniuj przelicznik walutowy"
+            />
+            <TextField
+              floatingLabelText="wpisz kurs w PLN"
+              className="input-group"
+              type="text"
+              onChange={this.onChangeZloty}
+              style={{
+                left: '3%'
+              }}
+          />
+            <CardHeader
+              title="Dodaj transakcję walutową"
+            />
+            <TextField
+                floatingLabelText="wprowadź nazwę transakcji"
+                type="text"
+                onChange={this.onChangeName}
+                style={{
+                  left: '3%'
+                }}
+            />
+            <TextField
+                floatingLabelText="wprowadź kwotę w Euro"
+                type="text"
+                onChange={this.onChangeEuro}
+                className="input-group__item"
+
+            />
+            <CardActions>
+              <FlatButton type="submit" label="Submit" />
+            </CardActions>
+          </Card>
+        </MuiThemeProvider>
         </form>
-        <p>{this.state.transactionName}</p>
+        <p>Suma wszystkich transakcji: <span>{this.props.transaction.length}</span></p>
       </div>
     );
   }
@@ -61,7 +98,7 @@ class DashboardPage extends React.Component {
 const mapStateToProps = (state, props) => {
   console.log(state)
   return {
-    transaction: state.transactionReducer
+    transaction: state.transaction
   };
 };
 

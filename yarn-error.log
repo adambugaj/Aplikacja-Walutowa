@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js run dev server
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js install material-ui
 
 PATH: 
   C:\Users\Freeware Sys\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Freeware Sys\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\Brackets\command;C:\Program Files\Git\cmd;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit;C:\Program Files\Java\jdk1.8.0_152\bin;C:\Program Files\Java\jre1.8.0_152\bin;C:\Program Files (x86)\Yarn\bin;C:\Program Files\nodejs;C:\Users\Freeware Sys\AppData\Local\Microsoft\WindowsApps;C:\Users\Freeware Sys\AppData\Local\atom\bin;C:\Users\Freeware Sys\AppData\Local\Yarn\bin;C:\Users\Freeware Sys\AppData\Roaming\npm;C:\Users\Freeware Sys\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Heroku\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
@@ -15,7 +15,7 @@ Platform:
 
 npm manifest: 
   {
-    "name": "expensify",
+    "name": "boilerplate-react-app",
     "version": "1.0.0",
     "engines": {
       "node": "v8.9.3"
@@ -37,6 +37,7 @@ npm manifest:
       "babel-loader": "7.1.1",
       "babel-plugin-transform-class-properties": "6.24.1",
       "babel-plugin-transform-object-rest-spread": "^6.26.0",
+      "babel-polyfill": "^6.26.0",
       "babel-preset-env": "1.5.2",
       "babel-preset-react": "6.24.1",
       "css-loader": "^0.28.8",
@@ -975,7 +976,7 @@ Lockfile:
       babel-runtime "^6.22.0"
       babel-types "^6.24.1"
   
-  babel-polyfill@^6.23.0:
+  babel-polyfill@^6.23.0, babel-polyfill@^6.26.0:
     version "6.26.0"
     resolved "https://registry.yarnpkg.com/babel-polyfill/-/babel-polyfill-6.26.0.tgz#379937abc67d7895970adc621f284cd966cf2153"
     dependencies:
@@ -6515,14 +6516,10 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  Error: Command "dev" not found.
+  Error: `install` has been replaced with `add` to add new dependencies. Run "yarn add material-ui" instead.
       at new MessageError (C:\Program Files (x86)\Yarn\lib\cli.js:186:110)
-      at C:\Program Files (x86)\Yarn\lib\cli.js:86728:17
+      at Object.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:21965:13)
       at Generator.next (<anonymous>)
       at step (C:\Program Files (x86)\Yarn\lib\cli.js:98:30)
-      at C:\Program Files (x86)\Yarn\lib\cli.js:116:14
-      at new Promise (<anonymous>)
-      at new F (C:\Program Files (x86)\Yarn\lib\cli.js:23430:28)
-      at C:\Program Files (x86)\Yarn\lib\cli.js:95:12
-      at runCommand (C:\Program Files (x86)\Yarn\lib\cli.js:86733:22)
-      at Object.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:86833:14)
+      at C:\Program Files (x86)\Yarn\lib\cli.js:109:13
+      at <anonymous>

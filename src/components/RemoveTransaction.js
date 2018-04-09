@@ -1,15 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { removeTransaction } from '../actions/transactions';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import FlatButton from 'material-ui/FlatButton';
 
 
 const RemoveTransaction = (props) => {
   return (
     <div>
-          <button label="Remove" onClick={ (trans) => {
+          <MuiThemeProvider>
+          <FlatButton label="Remove" onClick={ (trans) => {
             props.dispatch(removeTransaction({transactionID: props.transaction.transactionID}));
             }}
-          >Remove</button>
+          />
+        </MuiThemeProvider>
     </div>
   )
 }
