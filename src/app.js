@@ -7,7 +7,7 @@ import AppRouter, { history } from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import checkTransaction from './actions/transactions';
 
-const store = configureStore()
+const store = configureStore();
 
 // connect store with every components - allow download the data
 const jsx = (

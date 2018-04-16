@@ -1,3 +1,4 @@
+
 const addTransaction = ({
   transactionName = '',
   transactionEuro = 0,
@@ -24,13 +25,6 @@ const editTransaction = (updates) => {
   return {
     type: 'EDIT_TRANSACTION',
     updates
-  }
-};
-
-const filterTransaction = (transactionSum) => {
-  return {
-    type: 'FILTER_TRANSACTION',
-    transactionSum
   }
 };
 

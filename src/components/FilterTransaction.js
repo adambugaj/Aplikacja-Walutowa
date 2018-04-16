@@ -27,13 +27,10 @@ const FilterTransaction = (props) => {
 
 // Pobieramy tylko dane z props wysyłane przez główny komponent i od razu je sortujemy wg. najwyższej kwoty
 const mapStateToProps = (props) => {
-  console.log(props)
   return {
     transaction: props.transaction.sort((a,b) => {
-          console.log(a)
           return b.transactionHigh - a.transactionHigh;
-    }),
-    trans: props.transaction
+    })
   };
 };
 

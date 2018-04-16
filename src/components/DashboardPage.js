@@ -21,8 +21,11 @@ class DashboardPage extends React.Component {
 
   onChangeZloty = (e) => {
     const zloty = e.target.value;
-    this.props.dispatch(editTransaction( zloty ));
-    this.setState(() => ({ transactionSum: zloty }));
+    // Validation: replace , to .
+    let regex = zloty.replace(/[,]/, '.');
+    console.log(regex)
+    this.props.dispatch(editTransaction( regex ));
+    this.setState(() => ({ transactionSum: regex }));
   };
 
   onChangeName = (e) => {

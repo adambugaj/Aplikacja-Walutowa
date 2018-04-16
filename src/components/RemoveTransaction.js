@@ -19,7 +19,7 @@ const RemoveTransaction = (props) => {
 }
 
 const mapStateToProps = (state, props) => {
-  // Zwróc odpowiednie ID transakcji, która chcemy usunąc
+  // Zwraca odpowiednie ID transakcji, która chcemy usunąc
   return {
     transaction: state.transaction.find((trans) => {
       return trans.transactionID === props.transaction.transactionID;

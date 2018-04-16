@@ -19,7 +19,7 @@ console.log(props.transaction.length);
       />
       { // Wyświetla listę transakcji
         props.transaction.length !== 0 && props.transaction.map((trans) => {
-          return <TransactionList key={trans.transactionName + Math.random()}{...trans} />
+          return <TransactionList key={trans.transactionName + Math.random()} {...trans} />
       })}
     </div>
   );
